@@ -43,4 +43,9 @@ describe('add', function () {
     const args = '//;\n1;2';
     Kata.add(args).should.equal(3);
   });
+
+  it('should throw an error if negative numbers are input', function () {
+    const args = '1,2,-3,-4,5';
+    chai.expect(() => Kata.add(args)).to.throw(/^negatives not allowed: -3, -4$/);
+  });
 });

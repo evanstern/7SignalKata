@@ -1,3 +1,5 @@
+const findNegatives = (numbers) => numbers.filter(n => n < 0);
+
 const add = (str) => {
   const match = str.match(/\/\/.+\n/);
 
@@ -7,7 +9,14 @@ const add = (str) => {
   const regex = RegExp(`[${delimiter}\n]+`);
   const numberStrings = args.split(regex);
 
-  return numberStrings.map(x => Number(x)).reduce((x, y) => x + y, 0);
+  const numbers = numberStrings.map(x => Number(x));
+
+  const negativeNumbers = findNegatives(numbers);
+  if (negativeNumbers.length) {
+    throw new Error(`negatives not allowed: ${negativeNumbers.join(', ')}`);
+  }
+
+  return numbers.reduce((x, y) => x + y, 0);
 };
 
 const app = { add };
