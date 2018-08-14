@@ -1,8 +1,6 @@
-const add = (a = 0, b = 0) => {
+const add = (a) => {
   const aNum = Number(a);
-  const bNum = Number(b);
-  console.log(aNum, bNum);
-  return aNum + bNum;
+  return aNum;
 };
 
 const app = { add };
