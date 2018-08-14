@@ -1,5 +1,5 @@
 const add = (a) => {
-  const numberStrings = a.split(',');
+  const numberStrings = a.split(/[,\n]+/);
   return numberStrings.map(x => Number(x)).reduce((a, b) => a + b, 0);
 };
 

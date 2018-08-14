@@ -13,6 +13,8 @@ describe('add', function () {
     return args;
   };
 
+  const reduce = (numbers) => numbers.reduce((a, b) => a + b, 0);
+
   it('should add an empty string', function () {
     Kata.add('').should.equal(0);
   });
@@ -28,7 +30,12 @@ describe('add', function () {
   it('should add an arbitrary number of arguments', function () {
     const numArgs = 2 + Math.ceil(Math.random() * 10);
     const args = createArguments(numArgs);
-    const expected = args.reduce((a, b) => a + b, 0);
+    const expected = reduce(args);
     Kata.add(args.join(',')).should.equal(expected);
+  });
+
+  it('should accept newlines and commas as delimiters', function () {
+    const args = '1\n2,3';
+    Kata.add(args).should.equal(6);
   });
 });
