@@ -1,10 +1,11 @@
 const findNegatives = (numbers) => numbers.filter(n => n < 0);
 const trimMax = (numbers) => numbers.filter(n => n <= 1000);
+const formatDelimiter = (d) => d.replace(/^\[/, '').replace(RegExp(']$'), '');
 
 const add = (str) => {
   const match = str.match(/\/\/.+\n/);
 
-  const delimiter = match ? match[0].replace('//', '').replace('\n') : ',';
+  const delimiter = match ? formatDelimiter(match[0].replace('//', '').replace('\n', '')) : ',';
   const args = match ? str.replace(match[0], '') : str;
 
   const regex = RegExp(`[${delimiter}\n]+`);

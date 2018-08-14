@@ -53,4 +53,9 @@ describe('add', function () {
     const args = '1000,1001,1002';
     Kata.add(args).should.equal(1000);
   });
+
+  it('should accept delimiters with bracket format', function () {
+    const args = '//[***]\n1***2***3';
+    Kata.add(args).should.equal(6);
+  });
 });
