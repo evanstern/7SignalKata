@@ -38,4 +38,9 @@ describe('add', function () {
     const args = '1\n2,3';
     Kata.add(args).should.equal(6);
   });
+
+  it('should accept a delimiter definition', function () {
+    const args = '//;\n1;2';
+    Kata.add(args).should.equal(3);
+  });
 });
