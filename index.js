@@ -1,16 +1,13 @@
-const add = (a) => {
-  let delimiter = ',';
-  let args = a;
+const add = (str) => {
+  const match = str.match(/\/\/.+\n/);
 
-  const match = a.match(/\/\/.+\n/);
-  if (match) {
-    delimiter = match[0].replace('//', '').replace('\n');
-    args = a.replace(match[0], '');
-  }
+  const delimiter = match ? match[0].replace('//', '').replace('\n') : ',';
+  const args = match ? str.replace(match[0], '') : str;
 
   const regex = RegExp(`[${delimiter}\n]+`);
   const numberStrings = args.split(regex);
-  return numberStrings.map(x => Number(x)).reduce((a, b) => a + b, 0);
+
+  return numberStrings.map(x => Number(x)).reduce((x, y) => x + y, 0);
 };
 
 const app = { add };
