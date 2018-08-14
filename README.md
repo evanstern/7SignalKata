@@ -11,5 +11,12 @@ This project uses Node 10.7.0 and comes with a `.nvmrc` file. Either ensure you 
 To run the tests, run the following command:
 
 ```
+$ npm test
+```
+
+or simply
+
+```
 $ mocha
 ```
+
