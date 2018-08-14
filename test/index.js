@@ -54,8 +54,18 @@ describe('add', function () {
     Kata.add(args).should.equal(1000);
   });
 
-  it('should accept delimiters with bracket format', function () {
+  it('should accept delimiters with bracket notation', function () {
     const args = '//[***]\n1***2***3';
+    Kata.add(args).should.equal(6);
+  });
+
+  it('should allow for multiple delimiters using bracket notation', function () {
+    const args = '//[***][xxx]\n1***2xxx3';
+    Kata.add(args).should.equal(6);
+  });
+
+  it('should allow for a single delimiter using bracket notation', function () {
+    const args = '//[foobar]\n1foobar2foobar3';
     Kata.add(args).should.equal(6);
   });
 });
