@@ -48,4 +48,9 @@ describe('add', function () {
     const args = '1,2,-3,-4,5';
     chai.expect(() => Kata.add(args)).to.throw(/^negatives not allowed: -3, -4$/);
   });
+
+  it('should ignore numbers over 1000', function () {
+    const args = '1000,1001,1002';
+    Kata.add(args).should.equal(1000);
+  });
 });

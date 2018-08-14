@@ -1,4 +1,5 @@
 const findNegatives = (numbers) => numbers.filter(n => n < 0);
+const trimMax = (numbers) => numbers.filter(n => n <= 1000);
 
 const add = (str) => {
   const match = str.match(/\/\/.+\n/);
@@ -16,7 +17,7 @@ const add = (str) => {
     throw new Error(`negatives not allowed: ${negativeNumbers.join(', ')}`);
   }
 
-  return numbers.reduce((x, y) => x + y, 0);
+  return trimMax(numbers).reduce((x, y) => x + y, 0);
 };
 
 const app = { add };
